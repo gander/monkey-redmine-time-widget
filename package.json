@@ -1,0 +1,26 @@
+{
+  "name": "@gander/redmine-dev-sum",
+  "description": "Redmine Widget for total dev time presentation",
+  "author": "Adam Gąsowski",
+  "private": true,
+  "version": "4.0.0",
+  "type": "module",
+  "files": ["dist/**/*"],
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "vue": "^3.2.39"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.185",
+    "@vitejs/plugin-vue": "^3.1.0",
+    "typescript": "^4.8.3",
+    "vite": "^3.1.3",
+    "vite-plugin-monkey": "^2.5.0",
+    "vue-tsc": "^0.40.13"
+  }
+}
