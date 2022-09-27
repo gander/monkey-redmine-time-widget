@@ -6,8 +6,18 @@ const container = document.querySelector('.spent-time .value');
 
 if (container) {
     GM.getValue('API_KEY', '')
-        .then((api_key: string) => {
-            if (api_key.length === 0) throw new Error('Missing API KEY');
+        .then(async (api_key: string) => {
+            if (!api_key) {
+                const new_api_key = prompt('Redmine DevSum API KEY');
+
+                if (!new_api_key) {
+                    throw new Error('Missing API KEY');
+                } else {
+                    api_key = new_api_key;
+                    await GM.setValue('API_KEY', new_api_key);
+                }
+            }
+
             return api_key;
         })
         .then((api_key: string) => {
