@@ -1,3 +1,18 @@
+<template>
+  <div v-if="estimated_hours">
+    <template v-if="loaded">
+      <span class="cur">{{ toTime(spent_hours_cur) }}</span>
+      <span>+</span>
+      <span class="sub">{{ toTime(spent_hours_sub) }}</span>
+      <span>=</span>
+      <span class="spent">{{ toTime(spent_hours) }}</span>
+      <span>/</span>
+      <span class="left">{{ toTime(left_hours) }}</span>
+    </template>
+    <span v-else>Loading...</span>
+  </div>
+</template>
+
 <script setup lang="ts">
 import {computed, inject, onBeforeMount, ref} from 'vue';
 import {GM} from '$';
@@ -85,21 +100,6 @@ onBeforeMount(async () => {
 
 
 </script>
-
-<template>
-  <div v-if="estimated_hours">
-    <template v-if="loaded">
-      <span class="cur">{{ toTime(spent_hours_cur) }}</span>
-      <span>+</span>
-      <span class="sub">{{ toTime(spent_hours_sub) }}</span>
-      <span>=</span>
-      <span class="spent">{{ toTime(spent_hours) }}</span>
-      <span>/</span>
-      <span class="left">{{ toTime(left_hours) }}</span>
-    </template>
-    <span v-else>Loading...</span>
-  </div>
-</template>
 
 <style scoped>
 div {
