@@ -1,7 +1,7 @@
 import {createApp} from 'vue';
 import {createPinia} from 'pinia';
 import App from './components/App.vue';
-import FormKitVue from '@formkit/vue'
+import * as FormKitVue from '@formkit/vue'
 import {GM} from '$';
 
 const container = document.querySelector('.spent-time .value');
