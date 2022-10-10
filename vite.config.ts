@@ -37,7 +37,12 @@ export default defineConfig({
                             window.VueUse = VueUse;
                         }),
                     ],
-                    'pinia': cdn.jsdelivr('Pinia', 'dist/pinia.iife.prod.js'),
+                    '@formkit/vue': cdn.jsdelivr('FormKitVue', 'dist/formkit-vue.js'),
+                    'pinia': [
+                        'Pinia',
+                        `https://cdn.jsdelivr.net/npm/vue-demi@latest/lib/index.iife.js`,
+                        (version: string) => `https://cdn.jsdelivr.net/npm/pinia@${version}/dist/pinia.iife.js`,
+                    ],
                     'lodash': cdn.jsdelivr('_', 'lodash.min.js'),
                 },
             },
