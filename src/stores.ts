@@ -57,6 +57,7 @@ export const useConfigStore = defineStore('config', {
 
 export const useDataStore = defineStore('data', {
     state: () => ({
+        loading: true,
         current_user: null as User | null,
         current_issue: null as Issue | null,
         activities: [] as Activity[],
@@ -120,8 +121,8 @@ export const useDataStore = defineStore('data', {
             }
 
             const current_issue = await this.getCurrentIssue();
-            this.$patch({current_issue});
             await this.loadTimeEntries(current_issue.id);
+            this.$patch({current_issue, loading: false});
         },
 
         async getCurrentIssue(): Promise<Issue> {

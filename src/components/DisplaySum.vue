@@ -1,5 +1,5 @@
 <template>
-  <div class="sum">
+  <div class="sum" :class="{loading}">
     <time-span class="cur" :hours="hoursCur"/>
     <span>+</span>
     <time-span class="sub" :hours="hoursSub"/>
@@ -24,6 +24,7 @@ const {reset} = useConfigStore();
 const dataStore = useDataStore();
 
 const {init} = dataStore;
+const {loading} = storeToRefs(dataStore);
 
 const {
   hoursEst,
@@ -43,6 +44,10 @@ div.sum {
   height: 50px;
   display: flex;
   align-items: center;
+}
+
+div.loading {
+  opacity: 0.5;
 }
 
 span {
