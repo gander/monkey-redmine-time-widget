@@ -126,7 +126,7 @@ export const useDataStore = defineStore('data', {
         },
 
         async getCurrentIssue(): Promise<Issue> {
-            return (await this.makeRequest(window.location.href + `.json`) as { issue: Issue }).issue;
+            return (await this.makeRequest((new URL(window.location.href)).pathname + `.json`) as { issue: Issue }).issue;
         },
 
         async getIssue(issue_id: number): Promise<Issue> {
