@@ -1,5 +1,5 @@
 {
-  "name": "@gander/redmine-dev-sum",
+  "name": "@gander/monkey-redmine-time-widget",
   "description": "Redmine Widget for total dev time presentation",
   "author": "Adam Gąsowski",
   "private": true,

@@ -18,7 +18,7 @@ export default defineConfig({
                 ],
             },
             build: {
-                fileName: 'redmine-dev-sum.user.js',
+                fileName: 'monkey-redmine-time-widget.user.js',
                 externalGlobals: {
                     'vue': cdn
                         .jsdelivr('Vue', 'dist/vue.global.prod.js')
