@@ -65,7 +65,7 @@ export const useDataStore = defineStore('data', {
     }),
     getters: {
         hoursEst({current_issue}): number {
-            return current_issue?.estimated_hours || 0;
+            return current_issue?.total_estimated_hours || 0;
         },
 
         hoursCur({entries, current_issue}): number {
@@ -88,10 +88,10 @@ export const useDataStore = defineStore('data', {
             return this.hoursCur + this.hoursSub;
         },
         hoursLeft({current_issue}): number {
-            return Math.max((current_issue?.estimated_hours || 0) - this.hoursSpent, 0);
+            return Math.max((current_issue?.total_estimated_hours || 0) - this.hoursSpent, 0);
         },
         hoursOver({current_issue}): number {
-            return Math.abs(Math.min((current_issue?.estimated_hours || 0) - this.hoursSpent, 0));
+            return Math.abs(Math.min((current_issue?.total_estimated_hours || 0) - this.hoursSpent, 0));
         },
         activityOptions({activities}): { label: string, value: number }[] {
             return activities.map(({id, name}) => ({label: name, value: id}));

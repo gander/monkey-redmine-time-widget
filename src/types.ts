@@ -3,7 +3,7 @@ export type Issue = {
     parent: {
         id: number
     },
-    estimated_hours: number
+    total_estimated_hours: number
 }
 
 
