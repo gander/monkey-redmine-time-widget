@@ -10,6 +10,7 @@ export default defineConfig({
             entry: 'src/main.ts',
             userscript: {
                 namespace: 'gander.dev/monkey',
+                homepageURL: 'https://github.com/gander/monkey-redmine-time-widget',
                 include: [
                     /\/issues\/\d+/,
                 ],
