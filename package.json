@@ -3,7 +3,7 @@
   "description": "Redmine Widget for total dev time presentation",
   "author": "Adam Gąsowski",
   "private": true,
-  "version": "4.2.0-dev",
+  "version": "4.2.0",
   "type": "module",
   "files": [
     "dist/**/*"
@@ -11,12 +11,16 @@
   "release-it": {
     "git": {
       "tagName": "v${version}",
-      "commitArgs": ["-S"]
+      "commitArgs": [
+        "-S"
+      ]
     },
     "github": {
       "release": true,
       "draft": true,
-      "assets": ["dist/**/*.js"],
+      "assets": [
+        "dist/**/*.js"
+      ],
       "releaseName": "v${version}"
     },
     "npm": {
