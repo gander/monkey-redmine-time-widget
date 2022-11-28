@@ -1,9 +1,11 @@
 <template>
   <div class="sum" :class="{loading}">
-    <time-span class="cur help" :hours="hoursCur" title="The sum of the time used in the task"/>
-    <span>+</span>
-    <time-span class="sub help" :hours="hoursSub" title="The sum of the time used in the subtask"/>
-    <span>=</span>
+    <template v-if="hasSub">
+      <time-span class="cur help" :hours="hoursCur" title="The sum of the time used in the task"/>
+      <span>+</span>
+      <time-span class="sub help" :hours="hoursSub" title="The sum of the time used in the subtask"/>
+      <span>=</span>
+    </template>
     <time-span class="spent help" :hours="hoursSpent" title="Sum of time used"/>
     <template v-if="hoursEst > 0">
       <span>/</span>
@@ -33,6 +35,7 @@ const {
   hoursSpent,
   hoursLeft,
   hoursOver,
+  hasSub,
 } = storeToRefs(dataStore);
 
 onBeforeMount(init);

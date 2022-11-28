@@ -83,6 +83,9 @@ export const useDataStore = defineStore('data', {
                 .filter(({activity}) => activity_ids.includes(activity.id))
                 .reduce((sum: number, {hours}) => sum + hours, 0);
         },
+        hasSub({entries, current_issue}): boolean {
+            return entries.filter(({issue}) => issue.id !== current_issue?.id).length > 0;
+        },
         hoursSpent(): number {
             // @ts-ignore
             return this.hoursCur + this.hoursSub;
