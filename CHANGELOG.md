@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v4.2.1](https://github.com/gander/monkey-redmine-time-widget/compare/v4.2.0...v4.2.1)
+## [v4.3.0](https://github.com/gander/monkey-redmine-time-widget/compare/v4.2.1...v4.3.0)
 
 ### Commits
 
+- do not display squares, when no sub. Display only sum and remaining/overtime. [`9a139a4`](https://github.com/gander/monkey-redmine-time-widget/commit/9a139a4003c8f1e05ab08e4685acafd2ba92830e)
+
+## [v4.2.1](https://github.com/gander/monkey-redmine-time-widget/compare/v4.2.0...v4.2.1) - 2022-11-28
+
+### Commits
+
+- Release 4.2.1 [`81f17cf`](https://github.com/gander/monkey-redmine-time-widget/commit/81f17cf7a8d69bacfd651636b8aef8b13947a852)
 - add titles of time-spans [`549133e`](https://github.com/gander/monkey-redmine-time-widget/commit/549133ef26114303c404c8e731933c747a55e3ac)
 - add links to API key page: HTML / XML [`88153f2`](https://github.com/gander/monkey-redmine-time-widget/commit/88153f215be7319540a2a81864ae9cd5697aaebd)
 - place widget in last block (e.g. spent-time might not display) [`e7ca7dc`](https://github.com/gander/monkey-redmine-time-widget/commit/e7ca7dc636764d917ff12633dd9386988dcb559f)
