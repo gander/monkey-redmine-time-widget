@@ -1,14 +1,14 @@
 <template>
   <div class="sum" :class="{loading}">
-    <time-span class="cur" :hours="hoursCur"/>
+    <time-span class="cur help" :hours="hoursCur" title="The sum of the time used in the task"/>
     <span>+</span>
-    <time-span class="sub" :hours="hoursSub"/>
+    <time-span class="sub help" :hours="hoursSub" title="The sum of the time used in the subtask"/>
     <span>=</span>
-    <time-span class="spent" :hours="hoursSpent"/>
+    <time-span class="spent help" :hours="hoursSpent" title="Sum of time used"/>
     <template v-if="hoursEst > 0">
       <span>/</span>
-      <time-span class="over" :hours="hoursOver" v-if="hoursOver" :overtime="true"/>
-      <time-span class="left" :hours="hoursLeft" v-else/>
+      <time-span class="over help" :hours="hoursOver" v-if="hoursOver" :overtime="true" title="Total time over limit"/>
+      <time-span class="left help" :hours="hoursLeft" v-else title="Total time remaining"/>
     </template>
     <span class="reset" @click="reset" title="Clear API key">&times;</span>
   </div>
@@ -88,5 +88,9 @@ span.over {
 span.reset {
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+span.help {
+  cursor: help;
 }
 </style>
