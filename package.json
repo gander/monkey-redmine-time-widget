@@ -8,10 +8,32 @@
   "files": [
     "dist/**/*"
   ],
+  "release-it": {
+    "git": {
+      "tagName": "v${version}",
+      "commitArgs": ["-S"]
+    },
+    "github": {
+      "release": true,
+      "draft": true,
+      "assets": ["dist/**/*.js"],
+      "releaseName": "v${version}"
+    },
+    "npm": {
+      "publish": false
+    },
+    "hooks": {
+      "after:bump": [
+        "yarn build",
+        "yarn auto-changelog --package --commit-limit false --template keepachangelog --hide-credit"
+      ]
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "release": "release-it"
   },
   "dependencies": {
     "@formkit/vue": "^1.0.0-beta.11",
@@ -24,6 +46,8 @@
   "devDependencies": {
     "@types/lodash": "^4.14.185",
     "@vitejs/plugin-vue": "^3.1.0",
+    "auto-changelog": "^2.4.0",
+    "release-it": "^15.5.0",
     "typescript": "^4.8.3",
     "vite": "^3.1.3",
     "vite-plugin-monkey": "^2.7.1",
