@@ -4,7 +4,7 @@ import App from './components/App.vue';
 import * as FormKitVue from '@formkit/vue'
 import {GM} from '$';
 
-const container = document.querySelector('.spent-time .value');
+const container = document.querySelector('.splitcontent:last-child .splitcontentleft:last-child'); //
 
 if (container) {
     createApp(App)
