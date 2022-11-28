@@ -9,6 +9,11 @@
         validation-visibility="live"
         v-model.lazy.trim="api_key"
     />
+    <div class="api-links">
+      Where to find API key?
+      [<a href="/my/account.xml" target="_blank">XML</a>]
+      [<a href="/my/account.html" target="_blank">HTML</a>]
+    </div>
     <FormKit v-if="activityOptions.length"
              type="select"
              label="Activities"
@@ -51,5 +56,8 @@ watchEffect(async () => {
 <style scoped>
 .wrapper {
   margin: 20px 0;
+}
+.api-links {
+  font-weight: bold;
 }
 </style>

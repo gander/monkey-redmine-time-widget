@@ -10,7 +10,7 @@
       <time-span class="over" :hours="hoursOver" v-if="hoursOver" :overtime="true"/>
       <time-span class="left" :hours="hoursLeft" v-else/>
     </template>
-    <span class="reset" @click="reset" title="Reset">&times;</span>
+    <span class="reset" @click="reset" title="Clear API key">&times;</span>
   </div>
 </template>
 
@@ -87,5 +87,6 @@ span.over {
 
 span.reset {
   cursor: not-allowed;
+  opacity: 0.5;
 }
 </style>
