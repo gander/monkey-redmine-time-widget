@@ -5,13 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v4.2.0](https://github.com/gander/monkey-redmine-time-widget/compare/v4.1.0...v4.2.0)
+## [v4.2.1](https://github.com/gander/monkey-redmine-time-widget/compare/v4.2.0...v4.2.1)
 
 ### Commits
 
-- install release-it and auto-changelog [`545fb19`](https://github.com/gander/monkey-redmine-time-widget/commit/545fb196e4ce59bc7a16c76d0fd6314d9d989629)
+- add titles of time-spans [`549133e`](https://github.com/gander/monkey-redmine-time-widget/commit/549133ef26114303c404c8e731933c747a55e3ac)
+- add links to API key page: HTML / XML [`88153f2`](https://github.com/gander/monkey-redmine-time-widget/commit/88153f215be7319540a2a81864ae9cd5697aaebd)
+- place widget in last block (e.g. spent-time might not display) [`e7ca7dc`](https://github.com/gander/monkey-redmine-time-widget/commit/e7ca7dc636764d917ff12633dd9386988dcb559f)
+- add widget homepage url [`82d3f34`](https://github.com/gander/monkey-redmine-time-widget/commit/82d3f341d20b42e99f48bf87f8844ad07f582560)
+
+## [v4.2.0](https://github.com/gander/monkey-redmine-time-widget/compare/v4.1.0...v4.2.0) - 2022-11-28
+
+### Commits
+
+- install release-it and auto-changelog [`c3b12f9`](https://github.com/gander/monkey-redmine-time-widget/commit/c3b12f90de8c5a4f3ff4ba656a19ae4e663b52ab)
 - replace npm by yarn [`29bfbaf`](https://github.com/gander/monkey-redmine-time-widget/commit/29bfbaf935b2fe7a2837214342ccd0ff6b2392e9)
 - npm up [`c2566dc`](https://github.com/gander/monkey-redmine-time-widget/commit/c2566dc4235f862478c0cfd9c58ecf9ca33fdcfb)
+- Release 4.2.0 [`e9d72ce`](https://github.com/gander/monkey-redmine-time-widget/commit/e9d72ce6b2c6ff1e1af6beb3ca7bbb1146cd6ee6)
 - BugFix: replace estimated_hours by total_estimated_hours [`29f8916`](https://github.com/gander/monkey-redmine-time-widget/commit/29f89169781c906255014de862cd91148862dc9c)
 
 ## v4.1.0 - 2022-10-12
