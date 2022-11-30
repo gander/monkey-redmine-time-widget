@@ -3,7 +3,7 @@
   "description": "Redmine Widget for total dev time presentation",
   "author": "Adam Gąsowski",
   "private": true,
-  "version": "4.3.0",
+  "version": "4.3.1",
   "type": "module",
   "files": [
     "dist/**/*"
