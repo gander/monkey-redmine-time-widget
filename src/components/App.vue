@@ -1,8 +1,8 @@
 <template>
-  <template v-if="loaded">
-    <display-setup v-if="setupNeeded"/>
-    <display-sum v-else/>
-  </template>
+  <div class="outer" v-if="loaded">
+    <display-setup class="inner" v-if="setupNeeded"/>
+    <display-sum class="inner" v-else/>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -19,4 +19,13 @@ const {loaded, setupNeeded} = storeToRefs(configStore);
 onBeforeMount(load);
 </script>
 
+<style scoped>
+div.outer {
+  display: flex;
+  justify-content: end;
+}
 
+div.inner {
+  width: 50%;
+}
+</style>

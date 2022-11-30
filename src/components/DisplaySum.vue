@@ -43,7 +43,6 @@ onBeforeMount(init);
 
 <style scoped>
 div.sum {
-  margin: 30px 0;
   height: 50px;
   display: flex;
   align-items: center;

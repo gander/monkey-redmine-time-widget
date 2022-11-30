@@ -4,7 +4,7 @@ import App from './components/App.vue';
 import * as FormKitVue from '@formkit/vue'
 import {GM} from '$';
 
-const container = document.querySelector('.splitcontent:last-child .splitcontentleft:last-child'); //
+const container = document.querySelector('.attributes');
 
 if (container) {
     createApp(App)
