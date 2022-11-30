@@ -6,6 +6,14 @@ declare module '*.vue' {
   export default component;
 }
 
+interface ImportMetaEnv {
+  readonly VITE_APP_SENTRY_DSN: string
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}
+
 /**
  * alias of vite-plugin-monkey/dist/client
  */
