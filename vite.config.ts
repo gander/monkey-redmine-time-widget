@@ -21,6 +21,10 @@ export default defineConfig({
             build: {
                 fileName: 'monkey-redmine-time-widget.user.js',
                 externalGlobals: {
+                    '@sentry/browser': [
+                        'Sentry',
+                        (version: string) => `https://browser.sentry-cdn.com/${version}/bundle.min.js`,
+                    ],
                     'vue': cdn
                         .jsdelivr('Vue', 'dist/vue.global.prod.js')
                         .concat(
