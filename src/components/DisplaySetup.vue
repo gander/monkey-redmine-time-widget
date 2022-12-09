@@ -8,6 +8,7 @@
         validation="required|alphanumeric|length:40"
         validation-visibility="live"
         v-model.lazy.trim="api_key"
+        style="width:100%"
     />
     <div class="api-links">
       Where to find API key?
