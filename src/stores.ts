@@ -68,36 +68,36 @@ export const useDataStore = defineStore('data', {
             return current_issue?.total_estimated_hours || 0;
         },
 
-        hoursCur({entries, current_issue}): number {
+        hoursCur(state): number {
             const {activity_ids} = useConfigStore();
-            return entries
-                .filter(({issue}) => issue.id === current_issue?.id)
+            return state.entries
+                .filter(({issue}) => issue.id === state.current_issue?.id)
                 .filter(({activity}) => activity_ids.includes(activity.id))
                 .reduce((sum: number, {hours}) => sum + hours, 0);
         },
-        hoursSub({entries, current_issue}): number {
+        hoursSub(state): number {
             const {activity_ids} = useConfigStore();
 
-            return entries
-                .filter(({issue}) => issue.id !== current_issue?.id)
+            return state.entries
+                .filter(({issue}) => issue.id !== state.current_issue?.id)
                 .filter(({activity}) => activity_ids.includes(activity.id))
                 .reduce((sum: number, {hours}) => sum + hours, 0);
         },
-        hasSub({entries, current_issue}): boolean {
-            return entries.filter(({issue}) => issue.id !== current_issue?.id).length > 0;
+        hasSub(state): boolean {
+            return state.entries.filter(({issue}) => issue.id !== state.current_issue?.id).length > 0;
         },
         hoursSpent(): number {
             // @ts-ignore
             return this.hoursCur + this.hoursSub;
         },
-        hoursLeft({current_issue}): number {
-            return Math.max((current_issue?.total_estimated_hours || 0) - this.hoursSpent, 0);
+        hoursLeft(state): number {
+            return Math.max((state.current_issue?.total_estimated_hours || 0) - this.hoursSpent, 0);
         },
-        hoursOver({current_issue}): number {
-            return Math.abs(Math.min((current_issue?.total_estimated_hours || 0) - this.hoursSpent, 0));
+        hoursOver(state): number {
+            return Math.abs(Math.min((state.current_issue?.total_estimated_hours || 0) - this.hoursSpent, 0));
         },
-        activityOptions({activities}): { label: string, value: number }[] {
-            return activities.map(({id, name}) => ({label: name, value: id}));
+        activityOptions(state): { label: string, value: number }[] {
+            return state.activities.map(({id, name}) => ({label: name, value: id}));
         },
     },
     actions: {
