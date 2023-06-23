@@ -220,127 +220,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@formkit/core@npm:1.0.0-beta.12":
-  version: 1.0.0-beta.12
-  resolution: "@formkit/core@npm:1.0.0-beta.12"
-  dependencies:
-    "@formkit/utils": 1.0.0-beta.12
-  checksum: 48f064d173e6c651f626f1971ea73dea901c6e3265ba29649da5127a44c0e9cb38c592045a14d37a315c8575b8185d57051db38970b6d7a6a2335e8ee6ef7404
-  languageName: node
-  linkType: hard
-
-"@formkit/dev@npm:1.0.0-beta.12":
-  version: 1.0.0-beta.12
-  resolution: "@formkit/dev@npm:1.0.0-beta.12"
-  dependencies:
-    "@formkit/core": 1.0.0-beta.12
-    "@formkit/utils": 1.0.0-beta.12
-  checksum: 07f8f40504b0024b1ce7d0d977981b7ed6d86567cebb118371079120e3c310dfb1d7ecb1b309059f140deb9490cd30fc93d4a9fb65d67416ae9dec2d1d7b39fc
-  languageName: node
-  linkType: hard
-
-"@formkit/i18n@npm:1.0.0-beta.12":
-  version: 1.0.0-beta.12
-  resolution: "@formkit/i18n@npm:1.0.0-beta.12"
-  dependencies:
-    "@formkit/core": 1.0.0-beta.12
-    "@formkit/utils": 1.0.0-beta.12
-    "@formkit/validation": 1.0.0-beta.12
-  checksum: c260779ebcc97c22bd14c00c6a73d3b3d3c95b519460f2f2087948651fb5505e0eb1827b1cc1cd67d9f405d2cb2cb503142d58ca7570a43ccf690d9b7c298935
-  languageName: node
-  linkType: hard
-
-"@formkit/inputs@npm:1.0.0-beta.12":
-  version: 1.0.0-beta.12
-  resolution: "@formkit/inputs@npm:1.0.0-beta.12"
-  dependencies:
-    "@formkit/core": 1.0.0-beta.12
-  checksum: 62e748ac0e44512794f64b5a10d8e6e8f2415b54484e52fd20d17685f93c11e82269ccd01bdb7307429a957a8810eca59003e40cf36b5812024c9d7da549cd67
-  languageName: node
-  linkType: hard
-
-"@formkit/observer@npm:1.0.0-beta.12":
-  version: 1.0.0-beta.12
-  resolution: "@formkit/observer@npm:1.0.0-beta.12"
-  dependencies:
-    "@formkit/core": 1.0.0-beta.12
-    "@formkit/utils": 1.0.0-beta.12
-  checksum: a443bd4b7493e53a325d284abceea590cc3f274f92cd08e15c77fa1375a01f035c95dca1763f95f472835248eb1d6a5c8638e65bba626fc23ed0c930122068b1
-  languageName: node
-  linkType: hard
-
-"@formkit/rules@npm:1.0.0-beta.12":
-  version: 1.0.0-beta.12
-  resolution: "@formkit/rules@npm:1.0.0-beta.12"
-  dependencies:
-    "@formkit/core": 1.0.0-beta.12
-    "@formkit/utils": 1.0.0-beta.12
-    "@formkit/validation": 1.0.0-beta.12
-  checksum: 54f3f3a7747adf905fcf31702825dc3c7680a8c1f3065341f58d8a31aaa42db4bfa8903128a2584744c1fad86d9e9678bc322735178b64b0e7aa73e328939872
-  languageName: node
-  linkType: hard
-
-"@formkit/themes@npm:1.0.0-beta.12":
-  version: 1.0.0-beta.12
-  resolution: "@formkit/themes@npm:1.0.0-beta.12"
-  dependencies:
-    "@formkit/core": 1.0.0-beta.12
-  peerDependencies:
-    tailwindcss: ^3.0.0
-    unocss: ^0.31.0
-    windicss: ^3.0.0
-  peerDependenciesMeta:
-    tailwindcss:
-      optional: true
-    unocss:
-      optional: true
-    windicss:
-      optional: true
-  checksum: bfa4dca0631dbcc7755164e2b4c91c82e00c67b01bccf2d258d490e7422391676f43dda53fec02d0523d9c22847e159dad999d9c4681cd1e45ed92f1747815de
-  languageName: node
-  linkType: hard
-
-"@formkit/utils@npm:1.0.0-beta.12":
-  version: 1.0.0-beta.12
-  resolution: "@formkit/utils@npm:1.0.0-beta.12"
-  checksum: ee8aab682713ff0cc61901b524f48e1a2b8314e5f06c15b296d5a9339f3ea0af2a76b6a1bf706bf274713aee8982aa90d587f7c6310fa14a0a5adc7aebb24824
-  languageName: node
-  linkType: hard
-
-"@formkit/validation@npm:1.0.0-beta.12":
-  version: 1.0.0-beta.12
-  resolution: "@formkit/validation@npm:1.0.0-beta.12"
-  dependencies:
-    "@formkit/core": 1.0.0-beta.12
-    "@formkit/observer": 1.0.0-beta.12
-  checksum: 23e2ecde60cbc8b147cf99b52a98c995d74a8aa07e61a2d8c583de9cfc1c128b19f0615e87f7c8dba30b5dde950a750e48bb747813ab714e8f6d3594ddd15bfd
-  languageName: node
-  linkType: hard
-
-"@formkit/vue@npm:^1.0.0-beta.11":
-  version: 1.0.0-beta.12
-  resolution: "@formkit/vue@npm:1.0.0-beta.12"
-  dependencies:
-    "@formkit/core": 1.0.0-beta.12
-    "@formkit/dev": 1.0.0-beta.12
-    "@formkit/i18n": 1.0.0-beta.12
-    "@formkit/inputs": 1.0.0-beta.12
-    "@formkit/observer": 1.0.0-beta.12
-    "@formkit/rules": 1.0.0-beta.12
-    "@formkit/themes": 1.0.0-beta.12
-    "@formkit/utils": 1.0.0-beta.12
-    "@formkit/validation": 1.0.0-beta.12
-  peerDependencies:
-    vue: ^3.2.1
-  checksum: 2290d59c0a48f261230b7fa186d65266ab28303d64567223350b4a3b2ce910b90c256c4307b896e5c4f9c392edf45ebda2ccfd7ebcbe453b868832b2c7751960
-  languageName: node
-  linkType: hard
-
 "@gander/monkey-redmine-time-widget@workspace:.":
   version: 0.0.0-use.local
   resolution: "@gander/monkey-redmine-time-widget@workspace:."
   dependencies:
-    "@formkit/vue": ^1.0.0-beta.11
     "@types/lodash": ^4.14.185
     "@vitejs/plugin-vue": ^4.2.1
     "@vueuse/core": ^9.3.0
@@ -348,6 +231,7 @@ __metadata:
     dotenv-cli: ^6.0.0
     lodash: ^4.17.21
     pinia: ^2.0.22
+    primevue: ^3.29.2
     release-it: ^15.5.0
     typescript: ^5.0.4
     vite: ^4.3.5
@@ -3928,6 +3812,15 @@ __metadata:
   version: 1.1.2
   resolution: "prelude-ls@npm:1.1.2"
   checksum: c4867c87488e4a0c233e158e4d0d5565b609b105d75e4c05dc760840475f06b731332eb93cc8c9cecb840aa8ec323ca3c9a56ad7820ad2e63f0261dadcb154e4
+  languageName: node
+  linkType: hard
+
+"primevue@npm:^3.29.2":
+  version: 3.29.2
+  resolution: "primevue@npm:3.29.2"
+  peerDependencies:
+    vue: ^3.0.0
+  checksum: 8938c0adcc91a208703b562b4b2dba7e3f73a2c4cb3f87a8f552dfb08742390556c2f7cd2ded4a706374eb3a3965edfb004ada41a1deabd2a14b0e4bc0ac9d1d
   languageName: node
   linkType: hard
 

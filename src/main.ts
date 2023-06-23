@@ -1,15 +1,18 @@
 import {createApp} from 'vue';
 import {createPinia} from 'pinia';
 import App from './components/App.vue';
-import * as FormKitVue from '@formkit/vue'
+import PrimeVue from 'primevue/config';
 import {GM} from '$';
+
+import "primevue/resources/themes/lara-light-indigo/theme.css";
+import "primevue/resources/primevue.min.css";
 
 const container = document.querySelector('.attributes');
 
 if (container) {
     createApp(App)
         .use(createPinia())
-        .use(FormKitVue.plugin, FormKitVue.defaultConfig({theme: 'genesis'}))
+        .use(PrimeVue)
         .mount(GM.addElement(container, 'div'));
 }
 
