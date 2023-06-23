@@ -38,14 +38,16 @@ export default defineConfig({
                             window.VueUse = VueUse;
                         }),
                     ],
-                    '@formkit/vue': cdn.jsdelivr('FormKitVue', 'dist/formkit-vue.js'),
                     'pinia': [
                         'Pinia',
                         `https://cdn.jsdelivr.net/npm/vue-demi@latest/lib/index.iife.js`,
                         (version: string) => `https://cdn.jsdelivr.net/npm/pinia@${version}/dist/pinia.iife.js`,
                     ],
-                    'lodash': cdn.jsdelivr('_', 'lodash.min.js'),
                 },
+                externalResource: {
+                    'primevue/resources/themes/lara-light-indigo/theme.css': 'https://cdn.jsdelivr.net/npm/primevue@3.29.2/resources/themes/lara-light-indigo/theme.css',
+                    'primevue/resources/primevue.min.css': 'https://cdn.jsdelivr.net/npm/primevue@3.29.2/resources/primevue.min.css',
+                }
             },
         }),
     ],

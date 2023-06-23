@@ -40,15 +40,13 @@
     "release": "dotenv -c production release-it --"
   },
   "dependencies": {
-    "@vueuse/core": "^9.3.0",
-    "lodash": "^4.17.21",
-    "pinia": "^2.0.22",
+    "@vueuse/core": "^10.2.0",
+    "pinia": "^2.1.4",
     "primevue": "^3.29.2",
-    "vue": "^3.2.47",
-    "vue-demi": "^0.13.11"
+    "vue": "^3.3.4",
+    "vue-demi": "^0.14.5"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.185",
     "@vitejs/plugin-vue": "^4.2.1",
     "auto-changelog": "^2.4.0",
     "dotenv-cli": "^6.0.0",
