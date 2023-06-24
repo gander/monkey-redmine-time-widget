@@ -1,16 +1,15 @@
 <template>
   <div class="sum" :class="{loading}">
     <template v-if="hasSub">
-      <time-span class="cur help" :hours="hoursCur" title="The sum of the time used in the task"/>
+      <time-span class="cur help" :seconds="timeCur" title="The sum of the time used in the task"/>
       <span>+</span>
-      <time-span class="sub help" :hours="hoursSub" title="The sum of the time used in the subtask"/>
+      <time-span class="sub help" :seconds="timeSub" title="The sum of the time used in the subtask"/>
       <span>=</span>
     </template>
-    <time-span class="spent help" :hours="hoursSpent" title="Sum of time used"/>
-    <template v-if="hoursEst > 0">
+    <time-span class="spent help" :seconds="timeSpent" title="Sum of time used"/>
+    <template v-if="timeEst > 0">
       <span>/</span>
-      <time-span class="over help" :hours="hoursOver" v-if="hoursOver" :overtime="true" title="Total time over limit"/>
-      <time-span class="left help" :hours="hoursLeft" v-else title="Total time remaining"/>
+      <time-span :class="[timeOver ? 'over' : 'left', 'help']" :seconds="timeOver || timeLeft" :title="timeOver ? 'Total time over limit' : 'Total time remaining'"/>
     </template>
     <span class="reset" @click="reset" title="Clear API key">&times;</span>
   </div>
@@ -25,20 +24,18 @@ import {onBeforeMount} from 'vue';
 const {reset} = useConfigStore();
 const dataStore = useDataStore();
 
-const {init} = dataStore;
-const {loading} = storeToRefs(dataStore);
+onBeforeMount(dataStore.init);
 
 const {
-  hoursEst,
-  hoursCur,
-  hoursSub,
-  hoursSpent,
-  hoursLeft,
-  hoursOver,
   hasSub,
+  loading,
+  timeCur,
+  timeEst,
+  timeLeft,
+  timeOver,
+  timeSpent,
+  timeSub,
 } = storeToRefs(dataStore);
-
-onBeforeMount(init);
 </script>
 
 <style scoped>

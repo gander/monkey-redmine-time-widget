@@ -1,18 +1,26 @@
 <template>
   <span>
-    {{ overtime ? '-' : '' }}{{ Math.trunc(hours).toString().padStart(2, '0') }}:{{ Math.round(hours * 60 % 60).toString().padStart(2, '0') }}
+    {{ hours }}:{{ minutes }}<span class="seconds" v-if="seconds > 0">:{{ seconds }}</span>
   </span>
 </template>
 
 <script setup lang="ts">
-defineProps({
-  hours: {
+import {computed} from 'vue';
+
+const props = defineProps({
+  seconds: {
     type: Number,
-    default: 0,
-  },
-  overtime: {
-    type: Boolean,
-    default: false,
-  },
+    required: true,
+  }
 });
+const hours = computed(() => Math.trunc(props.seconds / 3600).toString().padStart(2, '0'));
+const minutes = computed(() => Math.trunc((props.seconds / 60) % 60).toString().padStart(2, '0'));
+const seconds = computed(() => Math.trunc(props.seconds % 60).toString().padStart(2, '0'));
 </script>
+
+<style scoped>
+span.seconds {
+  font-family: monospace;
+  color: dimgrey;
+}
+</style>

@@ -1,6 +1,7 @@
 import {defineStore} from 'pinia';
 import {GM} from '$';
-import {Activity, Config, Issue, Project, TimeEntry, User} from './types';
+import {Activity, Config, Issue, TimeEntry, User} from './types';
+import TimeRecord, {getSeconds} from './classes/TimeRecord';
 
 export const useConfigStore = defineStore('config', {
     state: (): Config & { loaded: boolean } => ({
@@ -61,48 +62,57 @@ export const useDataStore = defineStore('data', {
         current_user: null as User | null,
         current_issue: null as Issue | null,
         activities: [] as Activity[],
-        entries: [] as TimeEntry[],
+        records: [] as TimeRecord[],
     }),
     getters: {
-        hoursEst({current_issue}): number {
-            return current_issue?.total_estimated_hours || 0;
+        timeEst(s): number {
+            return getSeconds(s.current_issue?.total_estimated_hours || 0);
         },
 
-        hoursCur(state): number {
-            const {activity_ids} = useConfigStore();
-            return state.entries
-                .filter(({issue}) => issue.id === state.current_issue?.id)
-                .filter(({activity}) => activity_ids.includes(activity.id))
-                .reduce((sum: number, {hours}) => sum + hours, 0);
-        },
-        hoursSub(state): number {
+        timeCur(s): number {
             const {activity_ids} = useConfigStore();
 
-            return state.entries
-                .filter(({issue}) => issue.id !== state.current_issue?.id)
-                .filter(({activity}) => activity_ids.includes(activity.id))
-                .reduce((sum: number, {hours}) => sum + hours, 0);
+            return s.records
+                .filter((r: TimeRecord): boolean => s.current_issue !== null && (r.issueId === s.current_issue.id))
+                .filter((r: TimeRecord): boolean => activity_ids.includes(r.activityId))
+                .reduce((sum: number, r: TimeRecord): number => sum + r.seconds, 0);
         },
-        hasSub(state): boolean {
-            return state.entries.filter(({issue}) => issue.id !== state.current_issue?.id).length > 0;
+
+        timeSub(s): number {
+            const {activity_ids} = useConfigStore();
+
+            return s.records
+                .filter((r: TimeRecord): boolean => s.current_issue !== null && (r.issueId !== s.current_issue.id))
+                .filter((r: TimeRecord): boolean => activity_ids.includes(r.activityId))
+                .reduce((sum: number, r: TimeRecord): number => sum + r.seconds, 0);
         },
-        hoursSpent(): number {
-            // @ts-ignore
-            return this.hoursCur + this.hoursSub;
+
+        hasSub(s): boolean {
+            return s.records.filter((r: TimeRecord) => r.issueId !== s.current_issue?.id).length > 0;
         },
-        hoursLeft(state): number {
-            return Math.max((state.current_issue?.total_estimated_hours || 0) - this.hoursSpent, 0);
+
+        timeSpent(): number {
+            return this.timeCur + this.timeSub;
         },
-        hoursOver(state): number {
-            return Math.abs(Math.min((state.current_issue?.total_estimated_hours || 0) - this.hoursSpent, 0));
+
+        timeLeft(s): number {
+            return Math.max((getSeconds(s.current_issue?.total_estimated_hours || 0)) - this.timeSpent, 0);
         },
-        activityOptions(state): { label: string, value: number }[] {
-            return state.activities.map(({id, name}) => ({label: name, value: id}));
+
+        timeOver(s): number {
+            return Math.abs(Math.min(getSeconds(s.current_issue?.total_estimated_hours || 0) - this.timeSpent, 0));
+        },
+
+        activityOptions(s): { label: string, value: number }[] {
+            return s.activities.map(({id, name}) => ({label: name, value: id}));
         },
     },
+
     actions: {
         async addTimeEntry(...entries: TimeEntry[]) {
-            entries.forEach(entry => this.entries[entry.id] = entry);
+            entries.forEach(entry => {
+                this.records[entry.id] = new TimeRecord(entry);
+            });
         },
 
         async makeRequest(url: string) {
@@ -132,22 +142,8 @@ export const useDataStore = defineStore('data', {
             return (await this.makeRequest((new URL(window.location.href)).pathname + `.json`) as { issue: Issue }).issue;
         },
 
-        async getIssue(issue_id: number): Promise<Issue> {
-            return (await this.makeRequest(`/issues/${issue_id}.json`) as { issue: Issue }).issue;
-        },
-
         async getSubIssues(parent_id: number): Promise<Issue[]> {
             return (await this.makeRequest(`/issues.json?parent_id=${parent_id}&amp;limit=100`) as { issues: Issue[] }).issues;
-        },
-
-        async getMyAccountId(): Promise<number> {
-            return (await this.makeRequest(`/my/account.json`) as { user: { id: number } }).user.id;
-        },
-
-        async getProjects(): Promise<Project[]> {
-            return (await this.makeRequest(`/projects.json`) as { projects: Project[] })
-                .projects
-                .map(({id, name}) => ({id, name}));
         },
 
         async getActivities(): Promise<Activity[]> {
@@ -158,14 +154,9 @@ export const useDataStore = defineStore('data', {
             this.$patch({activities: await this.getActivities()});
         },
 
-        async getProjectTimeEntries(): Promise<TimeEntry[]> {
-            return [];
-        },
-
         async getIssueTimeEntries(issue_id: number): Promise<TimeEntry[]> {
             return (await this.makeRequest(`/time_entries.json?issue_id=${issue_id}&amp;limit=100`) as { time_entries: TimeEntry[] }).time_entries;
         },
-
 
         async loadTimeEntries(issue_id: number): Promise<void> {
             await this.addTimeEntry(...(await this.getIssueTimeEntries(issue_id)));
