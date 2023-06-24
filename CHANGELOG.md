@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v4.4.0](https://github.com//gander/monkey-redmine-time-widget.git/compare/v4.3.1...v4.4.0)
+## [v5.0.0](https://github.com//gander/monkey-redmine-time-widget.git/compare/v4.4.0...v5.0.0)
+
+### Commits
+
+- Replacement of the TimeEntry type by the TimeRecord class. Counting by seconds. Displaying seconds when above 0. [`d7b1fe1`](https://github.com//gander/monkey-redmine-time-widget.git/commit/d7b1fe1833d6024c7f3e76577fa4d61e13c7e58f)
+
+## [v4.4.0](https://github.com//gander/monkey-redmine-time-widget.git/compare/v4.3.1...v4.4.0) - 2023-06-23
 
 ### Commits
 
@@ -14,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - upgrade monkey [`6710762`](https://github.com//gander/monkey-redmine-time-widget.git/commit/67107622345cbf2cab6b9310ae7a1089e4a1c550)
 - replaced formkit with primevue [`faaa809`](https://github.com//gander/monkey-redmine-time-widget.git/commit/faaa80975bd95855faa3dc326197cc77338d201c)
 - fix primevue setup; remove lodash [`1d06ad2`](https://github.com//gander/monkey-redmine-time-widget.git/commit/1d06ad29ce60eb36c177d69f23a393d2ee3e4404)
+- Release 4.4.0 [`c28bd2f`](https://github.com//gander/monkey-redmine-time-widget.git/commit/c28bd2f18e752ae5374d72364057e025f6f625f7)
 - fix after update [`c4d9595`](https://github.com//gander/monkey-redmine-time-widget.git/commit/c4d9595825127cb2ca2421c00ea06ee4e169f93a)
 - install dotenv-cli for release-it config [`747f7a4`](https://github.com//gander/monkey-redmine-time-widget.git/commit/747f7a4adb685e3a3786c30d3b4c71ccdc00d839)
 - update vite [`2fde7a2`](https://github.com//gander/monkey-redmine-time-widget.git/commit/2fde7a224644dfdb93adb17dfda83495ce172923)
