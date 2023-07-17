@@ -1,6 +1,6 @@
 import {defineStore} from 'pinia';
 import {GM} from '$';
-import {Activity, Config, Issue, TimeEntry, User} from './types';
+import {Activity, ChildIssue, Config, Issue, TimeEntry, User} from './types';
 import TimeRecord, {getSeconds} from './classes/TimeRecord';
 
 export const useConfigStore = defineStore('config', {
@@ -134,16 +134,12 @@ export const useDataStore = defineStore('data', {
             }
 
             const current_issue = await this.getCurrentIssue();
-            await this.loadTimeEntries(current_issue.id);
+            await this.loadTimeEntries(current_issue);
             this.$patch({current_issue, loading: false});
         },
 
         async getCurrentIssue(): Promise<Issue> {
-            return (await this.makeRequest((new URL(window.location.href)).pathname + `.json`) as { issue: Issue }).issue;
-        },
-
-        async getSubIssues(parent_id: number): Promise<Issue[]> {
-            return (await this.makeRequest(`/issues.json?parent_id=${parent_id}&amp;limit=100`) as { issues: Issue[] }).issues;
+            return (await this.makeRequest((new URL(window.location.href)).pathname + `.json?include=children`) as { issue: Issue }).issue;
         },
 
         async getActivities(): Promise<Activity[]> {
@@ -158,11 +154,15 @@ export const useDataStore = defineStore('data', {
             return (await this.makeRequest(`/time_entries.json?issue_id=${issue_id}&amp;limit=100`) as { time_entries: TimeEntry[] }).time_entries;
         },
 
-        async loadTimeEntries(issue_id: number): Promise<void> {
-            await this.addTimeEntry(...(await this.getIssueTimeEntries(issue_id)));
-            await Promise.all(
-                (await this.getSubIssues(issue_id)).map(issue => this.loadTimeEntries(issue.id)),
-            );
+        async loadTimeEntries(issue: Issue | ChildIssue): Promise<void> {
+            await this.addTimeEntry(...(await this.getIssueTimeEntries(issue.id)));
+
+            if ('children' in issue && typeof issue.children === 'object') {
+                await Promise.all(
+                    issue.children.map(issue => this.loadTimeEntries(issue)),
+                );
+
+            }
         },
     },
 

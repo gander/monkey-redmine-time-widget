@@ -1,11 +1,15 @@
-export type Issue = {
+export interface ChildIssue {
+    id: number
+}
+
+export interface Issue extends ChildIssue {
     id: number
     parent: {
         id: number
     },
-    total_estimated_hours: number
+    total_estimated_hours: number,
+    children: undefined|ChildIssue[]
 }
-
 
 export type TimeEntry = {
     id: number
