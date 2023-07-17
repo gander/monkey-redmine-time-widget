@@ -5,11 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v5.0.0](https://github.com//gander/monkey-redmine-time-widget.git/compare/v4.4.0...v5.0.0)
+## [v5.0.1](https://github.com//gander/monkey-redmine-time-widget.git/compare/v5.0.0...v5.0.1)
+
+### Commits
+
+- BugFix: sub issues are unreachable [`78f7c9a`](https://github.com//gander/monkey-redmine-time-widget.git/commit/78f7c9a1cd63da91056172b61e519ae74df5339d)
+
+## [v5.0.0](https://github.com//gander/monkey-redmine-time-widget.git/compare/v4.4.0...v5.0.0) - 2023-06-24
 
 ### Commits
 
 - Replacement of the TimeEntry type by the TimeRecord class. Counting by seconds. Displaying seconds when above 0. [`d7b1fe1`](https://github.com//gander/monkey-redmine-time-widget.git/commit/d7b1fe1833d6024c7f3e76577fa4d61e13c7e58f)
+- Release 5.0.0 [`99cf513`](https://github.com//gander/monkey-redmine-time-widget.git/commit/99cf513caf57e3baa51382fad01f0705f0dbfe1f)
 
 ## [v4.4.0](https://github.com//gander/monkey-redmine-time-widget.git/compare/v4.3.1...v4.4.0) - 2023-06-23
 
