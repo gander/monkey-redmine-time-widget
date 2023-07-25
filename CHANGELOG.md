@@ -5,11 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v5.0.1](https://github.com//gander/monkey-redmine-time-widget.git/compare/v5.0.0...v5.0.1)
+## [v5.0.2](https://github.com//gander/monkey-redmine-time-widget.git/compare/v5.0.1...v5.0.2)
+
+### Merged
+
+- Bump http-cache-semantics from 4.1.0 to 4.1.1 [`#3`](https://github.com//gander/monkey-redmine-time-widget.git/pull/3)
+- Bump word-wrap from 1.2.3 to 1.2.4 [`#4`](https://github.com//gander/monkey-redmine-time-widget.git/pull/4)
+
+### Commits
+
+- fix vulnerability and update; remove yarn [`5639099`](https://github.com//gander/monkey-redmine-time-widget.git/commit/5639099052df719ce324184bb39a3a9ec38a2ebf)
+- yarn after bump [`cd28180`](https://github.com//gander/monkey-redmine-time-widget.git/commit/cd28180b5b72bc5c87c6e95df92ceb3f25679d36)
+
+## [v5.0.1](https://github.com//gander/monkey-redmine-time-widget.git/compare/v5.0.0...v5.0.1) - 2023-07-17
 
 ### Commits
 
 - BugFix: sub issues are unreachable [`78f7c9a`](https://github.com//gander/monkey-redmine-time-widget.git/commit/78f7c9a1cd63da91056172b61e519ae74df5339d)
+- Release 5.0.1 [`b32d734`](https://github.com//gander/monkey-redmine-time-widget.git/commit/b32d734bb128b8a5516087357071b1ea638b07e3)
 
 ## [v5.0.0](https://github.com//gander/monkey-redmine-time-widget.git/compare/v4.4.0...v5.0.0) - 2023-06-24
 
